@@ -1,7 +1,9 @@
 const maxVol = client.config.opt.maxVol;
 
 module.exports = async ({  inter, queue }) => {
-    if (!inter.member.voice.channel) return inter.editReply({ content: `You are not in a voice channel ${inter.member}... try again ? ❌`, ephemeral: true });
+    if (!queue.node.queue.channel.members.has(inter.member.id)) {
+        return inter.editReply({ content: `You are not in a voice channel ${inter.member}... try again ? ❌`, ephemeral: true });
+    }
     if (!queue || !queue.isPlaying()) return inter.editReply({ content: `No music currently playing... try again ? ❌`, ephemeral: true });
 
         const vol = Math.floor(queue.node.volume - 5)

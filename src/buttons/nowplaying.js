@@ -8,7 +8,7 @@ module.exports = async ({ client, inter, queue }) => {
 
     const timestamp = track.duration;
     
-    const trackDuration = timestamp.progress == 'Infinity' ? 'infinity (live)' : track.duration;
+    const trackDuration = timestamp.progress === 'Infinity' ? 'infinity (live)' : track.duration;
 
     const progress = queue.node.createProgressBar();
     

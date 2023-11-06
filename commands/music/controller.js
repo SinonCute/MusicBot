@@ -88,8 +88,8 @@ module.exports = {
             .setStyle('Danger')
 
 
-         const row1 = new ActionRowBuilder().addComponents(back, queuebutton, resumepause, np, skip)
-         const row2 = new ActionRowBuilder().addComponents(volumedown, loop, save, volumeup)
+        const row1 = new ActionRowBuilder().addComponents(back, queuebutton, resumepause, np, skip)
+        const row2 = new ActionRowBuilder().addComponents(volumedown, loop, save, volumeup)
         const row3 = new ActionRowBuilder().addComponents(lyrics, shuffle, stop)
 
 

@@ -1,5 +1,5 @@
-const { QueryType, useMainPlayer, useQueue } = require('discord-player');
-const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
+const {QueryType, useMainPlayer, useQueue} = require('discord-player');
+const {ApplicationCommandOptionType, EmbedBuilder} = require('discord.js');
 
 module.exports = {
     name: 'play',
@@ -14,7 +14,7 @@ module.exports = {
         }
     ],
 
-    async execute({ inter, client }) {
+    async execute({inter, client}) {
         const player = useMainPlayer()
 
         const song = inter.options.getString('song');
@@ -23,10 +23,10 @@ module.exports = {
             searchEngine: QueryType.AUTO
         });
         const NoResultsEmbed = new EmbedBuilder()
-            .setAuthor({ name: `No results found... try again ? ❌`})
+            .setAuthor({name: `No results found... try again ? ❌`})
             .setColor('#2f3136')
 
-        if (!res || !res.tracks.length) return inter.editReply({ embeds: [NoResultsEmbed] });
+        if (!res || !res.tracks.length) return inter.editReply({embeds: [NoResultsEmbed]});
 
         const queue = await player.nodes.create(inter.guild, {
             metadata: inter.channel,
@@ -44,17 +44,17 @@ module.exports = {
             await player.deleteQueue(inter.guildId);
 
             const NoVoiceEmbed = new EmbedBuilder()
-                .setAuthor({ name: `I can't join the voice channel... try again ? ❌`})
+                .setAuthor({name: `I can't join the voice channel... try again ? ❌`})
                 .setColor('#2f3136')
 
-            return inter.editReply({ embeds: [NoVoiceEmbed] });
+            return inter.editReply({embeds: [NoVoiceEmbed]});
         }
 
-            const playEmbed = new EmbedBuilder()
-                .setAuthor({ name: `Loading your ${res.playlist ? 'playlist' : 'track'} to the queue... ✅`})
-                .setColor('#2f3136')
-                
-            await inter.editReply({ embeds: [playEmbed] });
+        const playEmbed = new EmbedBuilder()
+            .setAuthor({name: `Loading your ${res.playlist ? 'playlist' : 'track'} to the queue... ✅`})
+            .setColor('#2f3136')
+
+        await inter.editReply({embeds: [playEmbed]});
 
 
         res.playlist ? queue.addTrack(res.tracks) : queue.addTrack(res.tracks[0]);

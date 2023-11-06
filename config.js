@@ -1,10 +1,10 @@
 module.exports = {
     app: {
-        token: 'xxx',
-        playing: 'by Zerio ❤️',
+        token: 'ODg2NzM3MTM5MTU5NjgzMTEy.Gzglcr.7ywrLIqEN9KDN5yDKuuUcew2qUAfHtbQbDpfAQ',
+        playing: 'by Sinon ❤️',
         global: true,
-        guild: 'xxx',
-        ExtraMessages: false,
+        guild: '921868330619506780',
+        ExtraMessages: true,
         loopMessage: false,
 
     },
@@ -17,7 +17,7 @@ module.exports = {
         },
         maxVol: 100,
         spotifyBridge: true,
-        volume: 75,
+        volume: 25,
         leaveOnEmpty: true,
         leaveOnEmptyCooldown: 30000,
         leaveOnEnd: true,
